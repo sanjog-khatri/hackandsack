@@ -1,0 +1,212 @@
+/* Main container for the properties sidebar */
+.properties {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 60px); /* Full height minus the height of the header */
+  padding-top: 20px; /* Add some padding from the top */
+  margin-top: 60px; /* Push content down below the header */
+  transition: all 0.3s ease; /* Smooth transition for the width change */
+  width: 250px; /* Default width when text is visible */
+  position: relative; /* Needed for catalog popover to be placed correctly */
+}
+
+.properties.icons-only {
+  width: 100px; /* Shrinks the width when only icons are shown */
+}
+
+/* Toolbar with action buttons (icons) */
+.properties-toolbar {
+  display: flex;
+  justify-content: flex-start; /* Align icons to the left */
+  padding-left: 15px; /* Shift toolbar icons slightly to the left */
+  gap: 10px; /* Space between icons */
+  margin-bottom: 20px;
+  transition: all 0.3s ease; /* Smooth transition */
+}
+
+.properties.icons-only .properties-toolbar {
+  justify-content: center; /* Center the icons when in shrunk mode */
+  padding-left: 0; /* Remove extra padding when shrunk */
+  gap: 20px; /* Slightly increase gap between icons in shrunk mode */
+}
+
+/* Individual icon button styles */
+.properties-icon-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 20px; /* Default icon size */
+  transition: all 0.3s ease; /* Smooth transition */
+  color: #fff; /* Default icon color */
+}
+
+.properties-icon-button:hover {
+  color: #00bcd4; /* Optional: Change color on hover */
+}
+
+/* When in icons-only mode, reduce icon size */
+.properties.icons-only .properties-icon-button {
+  font-size: 18px; /* Smaller icon size in icons-only mode */
+}
+
+/* Properties list styling */
+.properties-list {
+  list-style: none;
+  padding-left: 0;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Decreased gap between items */
+}
+
+/* Individual properties item styling */
+.properties-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Align items to the left by default */
+  padding: 12px 20px; /* Reduced padding */
+  font-size: 1.3rem; /* Slightly smaller font */
+  cursor: pointer;
+  border-radius: 8px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: 80%; /* Slightly reduced width */
+  transition: all 0.3s ease;
+  color: #000;
+}
+
+.properties-item:hover {
+  background-color: black; /* Change the background color to black */
+  color: white; /* Change the text color to white */
+  transform: translateY(-5px); /* Slightly elevate the item for a hover effect */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Add a subtle shadow for hover effect */
+}
+
+/* Icon and text alignment inside each item */
+.properties-item .properties-icon {
+  font-size: 1.8rem; /* Smaller icon size */
+  color: #00bcd4;
+  margin-right: 15px;
+}
+
+.properties-item .properties-text {
+  font-weight: 600;
+}
+
+/* When the layout is shrunk, center the content */
+.properties.icons-only .properties-item {
+  justify-content: center; /* Center the content (icon + text) in the item */
+}
+
+.properties.icons-only .properties-item .properties-icon {
+  margin-right: 0; /* Remove space between icon and text */
+}
+
+/* New CSS to center the catalog icon when shrunk */
+.properties.icons-only .properties-item.catalog-item .properties-icon {
+  margin-right: 0; /* Remove extra space when in icons-only mode */
+  justify-content: center; /* Center icon within the item */
+  display: flex; /* Ensure proper layout for centering */
+}
+
+/* Hide expand button in shrunk mode */
+.properties.icons-only .properties-item .properties-icon.expand-button {
+  display: none; /* Hide the expand button in icons-only mode */
+}
+
+/* Show expand button in normal mode */
+.properties .properties-item .properties-icon.expand-button {
+  display: block; /* Show the expand button when not shrunk */
+}
+
+/* Search bar styling */
+.properties-search {
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.properties-search-input {
+  padding: 8px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 50%;
+}
+
+/* Catalog Popover styles */
+.catalog-contents {
+  list-style: none; /* Remove bullets */
+  padding-left: 0; /* No left padding */
+  margin-top: 10px;
+}
+
+.catalog-item {
+  display: flex; /* Align the icon and text horizontally */
+  align-items: center; /* Vertically align the icon and text */
+  padding: 8px;
+  cursor: pointer;
+  color: black; /* Set the font color to black */
+}
+
+.catalog-item:hover {
+  background-color: #f1f1f1; /* Slight hover effect */
+}
+
+.catalog-item .catalog-icon {
+  font-size: 1.5rem; /* Adjust icon size */
+  margin-right: 10px; /* Space between the icon and text */
+}
+
+/* Icon change for expanded catalog */
+.properties-item.expanded .properties-icon {
+  color: black; /* Change icon color to black when expanded */
+}
+
+/* Catalog expansion to show contents on the right side */
+.catalog-expanded {
+  position: relative; /* Position it outside the main layout */
+  top: -400px;
+  right: -286px; /* Positioned outside the layout on the right */
+  width: 250px; /* Same width as the container */
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Add a shadow for expanded contents */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Align contents to the left */
+  padding-left: 20px;
+  gap: 10px;
+  z-index: 10; /* Ensure it's above other content */
+  transition: all 0.3s ease;
+}
+
+/* When expanded, show the catalog contents */
+.properties-item.expanded + .catalog-expanded {
+  display: block;
+}
+
+/* When in smaller screen sizes, adjust catalog layout */
+@media (max-width: 768px) {
+  .properties-item {
+    width: 85%; /* Slightly reduce width on smaller screens */
+    font-size: 1.2rem; /* Smaller font size */
+    padding: 10px 20px; /* Reduced padding */
+  }
+
+  .properties-search-input {
+    width: 80%;
+  }
+}
+
+@media (max-width: 480px) {
+  .properties-item {
+    width: 100%;
+    font-size: 1rem; /* Smaller font size for smaller screens */
+    padding: 8px 15px; /* Reduced padding */
+  }
+
+  .properties-search-input {
+    width: 100%;
+  }
+}

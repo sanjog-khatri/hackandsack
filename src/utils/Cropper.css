@@ -1,0 +1,52 @@
+/* Cropper Modal styles */
+.cropper-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 600px;
+    height: 600px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  
+  .crop-save-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 0.5rem 1rem;
+    background-color: #00bcd4;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    z-index: 1050;
+  }
+  
+  .reactEasyCrop__cropArea {
+    width: 100%;
+    height: 80%;
+    border-radius: 15px;
+  }
+  
+  .cropper-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 5px;
+    z-index: 1050;
+  }
+  

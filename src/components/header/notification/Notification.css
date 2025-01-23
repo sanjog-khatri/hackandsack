@@ -1,0 +1,70 @@
+/* Notification styles */
+.header__notifications {
+  position: absolute;
+  top: 80px;
+  right: 100px;
+  background: #fff;
+  color: #333;
+  width: 280px; /* Slightly wider */
+  padding: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Softer and larger shadow */
+  border-radius: 12px;
+  max-height: 320px;
+  overflow-y: auto;
+  font-family: 'Arial', sans-serif; /* Set a modern font */
+  border: 1px solid #e0e0e0; /* Light border for a cleaner look */
+  background: linear-gradient(135deg, #f7f7f7, #fff); /* Subtle gradient */
+}
+
+.header__notifications h4 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #444; /* Darker header for better contrast */
+}
+
+.header__notification-icon {
+  font-size: 1.8rem; /* Increase icon size */
+  color: white; /* Set icon color */
+  transition: transform 0.1s ease-in-out; /* Smooth transition for shaking */
+  position: absolute;
+  right: 200px; /* Push the notification icon 20px to the left */
+  top: 2px; /* Adjust top if needed */
+}
+
+/* Apply the shake effect on hover for the notification icon */
+.header__notification-icon:hover {
+  animation: shake 0.3s ease-in-out;
+}
+
+.header__notifications ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+.header__notifications li {
+  font-size: 1rem;
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #f1f1f1; /* Soft shadow-like separation between items */
+  margin-bottom: 10px;
+  transition: background-color 0.3s ease;
+}
+.header__notifications li:hover {
+  background-color: #f9f9f9; /* Slight background highlight on hover */
+}
+.notification-time {
+  font-size: 0.9rem;
+  color: #888;
+  margin-left: 10px;
+}
+
+/* Vibration animation */
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}

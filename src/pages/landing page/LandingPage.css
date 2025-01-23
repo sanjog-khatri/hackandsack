@@ -1,0 +1,21 @@
+.landing-page {
+    padding: 2rem;
+  }
+  
+  .landing-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .landing-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .landing-content button {
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+  
