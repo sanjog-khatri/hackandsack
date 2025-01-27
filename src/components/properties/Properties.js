@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import {FaTachometerAlt,FaBox,FaThList,FaTools,FaTicketAlt,FaUsers,FaStore,FaSearch,FaExpandArrowsAlt,FaBars,FaChevronDown,FaChevronRight,} from 'react-icons/fa';
-import Catalog from '../../pages/Catalogs/Catalog';
+import { FaTachometerAlt, FaBox, FaThList, FaTools, FaTicketAlt, FaUsers, FaStore, FaSearch, FaExpandArrowsAlt, FaBars, FaChevronDown, FaChevronRight } from 'react-icons/fa';
+import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
+import Catalog from '../Catalogs/Catalog';
 import './Properties.css';
 
 const Properties = ({ onIconsToggle }) => {
@@ -9,6 +10,8 @@ const Properties = ({ onIconsToggle }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [isCatalogExpanded, setIsCatalogExpanded] = useState(false);
 
+  const navigate = useNavigate();
+
   const properties = [
     { name: 'Dashboard', icon: <FaTachometerAlt /> },
     { name: 'Orders', icon: <FaBox /> },
@@ -16,7 +19,7 @@ const Properties = ({ onIconsToggle }) => {
     { name: 'Customization', icon: <FaTools /> },
     { name: 'Ticket', icon: <FaTicketAlt /> },
     { name: 'Manage Staffs', icon: <FaUsers /> },
-    { name: 'Store Info', icon: <FaStore /> },
+    { name: 'Store Info', icon: <FaStore />, isStore: true },
   ];
 
   const toggleFullscreen = () => {
@@ -44,6 +47,14 @@ const Properties = ({ onIconsToggle }) => {
     setIsCatalogExpanded(!isCatalogExpanded);
   };
 
+  const handleItemClick = (item) => {
+    if (item.isStore) {
+      navigate('/store');
+    } else if (item.isCatalog) {
+      toggleCatalogExpansion();
+    }
+  };
+
   return (
     <div className={`properties ${isTextVisible ? '' : 'icons-only'}`}>
       <div className="properties-toolbar">
@@ -52,9 +63,6 @@ const Properties = ({ onIconsToggle }) => {
         </button>
         <button onClick={toggleFullscreen} className="properties-icon-button">
           <FaExpandArrowsAlt size={24} />
-        </button>
-        <button onClick={toggleSearch} className="properties-icon-button">
-          <FaSearch size={24} />
         </button>
       </div>
 
@@ -75,7 +83,7 @@ const Properties = ({ onIconsToggle }) => {
           <li
             key={index}
             className={`properties-item ${item.isCatalog && isCatalogExpanded ? 'expanded' : ''}`}
-            onClick={item.isCatalog ? toggleCatalogExpansion : null}
+            onClick={() => handleItemClick(item)}
           >
             <div className="properties-icon">{item.icon}</div>
             {isTextVisible && <span className="properties-text">{item.name}</span>}

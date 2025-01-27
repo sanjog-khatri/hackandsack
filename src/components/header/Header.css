@@ -15,19 +15,25 @@
   z-index: 1000;
 }
 
-.header__developer-name {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #00bcd4;
-}
-
-.header__name-container {
+.header__left {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  text-align: center;
-  flex-grow: 1;
-  justify-content: center;
+  gap: 0.5rem; /* Reduced gap between elements */
+}
+
+.header__logo-section {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.header__camera-icon {
+  font-size: 1.8rem; /* Make camera icon a bit larger */
+  color: white;
+  position: relative; /* Changed position from absolute to relative */
+  margin-left: 0.5rem; /* Added margin to move it slightly to the right */
+  background-color: transparent; /* Ensures no background color */
+  border: none; /* Removes any default border */
 }
 
 .header__company-name {
@@ -37,20 +43,61 @@
   cursor: pointer;
 }
 
+.header__search {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  padding: 0.5rem;
+  border-radius: 20px;
+  width: 40%;
+  margin-left: -10rem; /* Shift search bar slightly to the left */
+}
+
+.header__search-icon {
+  color: #333;
+  margin-right: 1.5rem;
+}
+
+.header__search-input {
+  border: none;
+  outline: none;
+  flex: 1;
+}
+
+.header__right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: relative; /* Keeps all child elements in place */
+  width: auto; /* Ensure the width adjusts only to the content inside */
+  justify-content: flex-end; /* Align the content to the right */
+}
+
 .header__icons button {
-  background-color: transparent; /* Remove background color */
-  border: none; /* Remove border */
-  padding: 0.5rem; /* Adjust padding for better clickable area */
-  cursor: pointer; /* Show a pointer cursor on hover */
+  background-color: transparent;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
 }
 
-
-.header__camera-icon {
-  font-size: 1.8rem; /* Make camera icon a bit larger */
-  color: white;
-  position: absolute; /* Position it relative to its container */
-  top: 50%; /* Center vertically */
-  transform: translate(-100%, -40%); /* Adjust for perfect centering */
+/* Make sure profile icon stays in place */
+.header__profile {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative; /* Keeps it in place */
+  z-index: 100; /* Ensures it's on top when toggling other components */
 }
 
+/* Ensure other elements like notifications/chats don't shift */
+.header__right > * {
+  position: relative; /* Ensure elements don't shift */
+  z-index: 1; /* Keeps the profile icon on top if necessary */
+}
 
+.header__right .header__notification-icon,
+.header__right .header__chat-icon {
+  z-index: 2; /* Ensure they are above profile when toggled */
+  background-color: transparent; /* Make the notification bell icon background transparent */
+  border: none; /* Remove any borders */
+}

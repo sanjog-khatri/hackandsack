@@ -1,0 +1,112 @@
+.subscriptions-container {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: "Arial", sans-serif;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: left;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .subscription-details {
+    background-color: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .subscription-label {
+    font-weight: bold;
+    color: #555;
+  }
+  
+  .subscription-input {
+    width: 60%;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-left: 1rem;
+  }
+  
+  .subscription-input:disabled {
+    background-color: #eee;
+    color: #555;
+  }
+  
+  .upgrade-button {
+    background-color: #00bcd4;
+    color: white;
+    padding: 0.7rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .upgrade-button:hover {
+    background-color: black;
+  }
+  
+  .packages-section {
+    margin-top: 2rem;
+    background-color: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+  }
+  
+  .packages-container {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .package-box {
+    background-color: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    flex: 1 1 calc(30% - 1rem);
+    text-align: center;
+  }
+  
+  .package-box h4 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+  }
+  
+  .package-box p {
+    color: #555;
+    margin: 0.5rem 0;
+  }
+  
+  @media (max-width: 768px) {
+    .subscription-details {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .subscription-input {
+      width: 100%;
+      margin: 1rem 0;
+    }
+  
+    .packages-container {
+      flex-direction: column;
+    }
+  }
+  

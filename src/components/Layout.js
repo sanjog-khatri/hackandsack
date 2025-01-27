@@ -3,32 +3,49 @@ import Header from './header/Header';
 import Properties from './properties/Properties';
 
 const Layout = ({ children }) => {
-  const [isIconsOnly, setIsIconsOnly] = useState(false); // State to manage icons-only mode
+  const [isIconsOnly, setIsIconsOnly] = useState(false);
+  const [isPropertiesShrunk, setIsPropertiesShrunk] = useState(false);
 
-  // Toggle the icons-only mode
   const toggleIconsOnly = () => {
     setIsIconsOnly((prev) => !prev);
   };
 
+  const togglePropertiesShrunk = () => {
+    setIsPropertiesShrunk((prev) => !prev);
+  };
+
   return (
-    <div style={{ display: 'flex', height: '100vh' }}>
+    <div className={`layout ${isPropertiesShrunk ? 'store-expanded' : ''}`} style={{ display: 'flex', flexDirection: 'row', height: '100vh' }}>
       <Header />
+      
+      {/* Sidebar (Properties) */}
       <aside
+        className={`properties ${isIconsOnly ? 'icons-only' : ''}`}
         style={{
-          width: isIconsOnly ? '120px' : '250px', // Increase the width for icons-only mode
-          backgroundColor: '#333',
-          color: 'white',
+          width: isIconsOnly ? '120px' : '250px',
+          backgroundColor: '#fff',
           padding: '1rem',
-          transition: 'width 0.3s ease', // Smooth transition when changing width
+          position: 'fixed',
+          top: '60px',
+          bottom: '0',
+          transition: 'width 0.3s ease',
         }}
       >
-        <Properties onIconsToggle={toggleIconsOnly} /> {/* Pass the toggle function */}
+        <Properties
+          onIconsToggle={toggleIconsOnly}
+          onShrinkToggle={togglePropertiesShrunk}
+        />
       </aside>
+
+      {/* Main Content */}
       <main
         style={{
-          marginLeft: isIconsOnly ? '130px' : '270px', // Adjust margin accordingly
+          marginLeft: isIconsOnly ? '130px' : '270px',
           padding: '2rem',
           flex: 1,
+          transition: 'margin-left 0.3s ease',
+          overflowY: 'auto',
+          height: 'calc(100vh - 60px)',
         }}
       >
         {children}
