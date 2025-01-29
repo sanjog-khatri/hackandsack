@@ -1,0 +1,82 @@
+.dashboard-container {
+    padding: 24px;
+    display: grid;
+    gap: 24px;
+  }
+  
+  .summary-cards {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+  
+  .card-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .card-value {
+    font-size: 2rem;
+  }
+  
+  .trend {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+  }
+  
+  .trend-up {
+    color: #4caf50;
+  }
+  
+  .trend-down {
+    color: #f44336;
+  }
+  
+  .chart-container {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: 2fr 2fr;
+  }
+  
+  .pie-chart-card {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .pie-chart-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Left for product labels, right for pie chart */
+    gap: 24px;
+  }
+  
+  .product-names {
+    padding: 16px;
+    background: #e3f2fd;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #0d47a1;
+  }
+  
+  .product-names ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .product-names li {
+    margin: 8px 0;
+  }
+  
+  .pie-chart-container {
+    position: relative;
+    height: 300px;
+    width: 300px;
+    margin: 0 auto;
+  }
+  
+  .table-cell-center {
+    text-align: center;
+    color: #9e9e9e;
+  }
+  

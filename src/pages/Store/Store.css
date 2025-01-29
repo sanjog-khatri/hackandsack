@@ -1,116 +1,128 @@
 .store {
-    display: flex;
-    height: 100vh;
-    transition: all 0.3s ease;
-    position: relative;
+  display: flex;
+  height: 100vh;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+:root {
+  --sidebar-padding-top: 55px; /* Default value */
+}
+
+.store-sidebar {
+  width: 15%;
+  background-color: white;
+  padding: 1rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  padding-top: var(--sidebar-padding-top); /* Customizable padding */
+  transition: all 0.3s ease;
+  overflow-y: auto;
+}
+
+.store-content {
+  flex: 1; /* Take up remaining space */
+  padding: 30px;
+  background-color: white;
+  overflow-y: auto; /* Allow scrolling for content */
+  transition: flex 0.3s ease; /* Smooth resizing for dynamic adjustments */
+}
+
+/* Shrinking Sidebar Behavior */
+.store-expanded .store-sidebar {
+  width: 15%; /* Shrink sidebar width */
+}
+
+.store-expanded .store-content {
+  flex: 1; /* Dynamically expand the content */
+}
+
+/* Sidebar List Styling */
+.store-sidebar ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Space between list items */
+  width: 100%; /* Take full width of the sidebar */
+}
+
+.store-sidebar li {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Align text and icon centrally */
+  padding: 6px 5px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-radius: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  color: #000;
+}
+
+/* Hover effect */
+.store-sidebar li:hover {
+  background-color: black;
+  color: white;
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Active state for selected item in sidebar */
+.store-sidebar li.active {
+  background-color: black;
+  color: white;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Add shadow for better visibility */
+}
+
+.store-sidebar li .icon {
+  font-size: 1.2rem;
+  color: #00bcd4;
+  margin-right: 10px; /* Space between icon and text */
+}
+
+.store-sidebar li .text {
+  font-weight: 700;
+}
+
+/* Responsive layout adjustments */
+@media (max-width: 768px) {
+  .store {
+    flex-direction: column; /* Stack layout for smaller screens */
   }
-  
+
   .store-sidebar {
-    width: 35%; /* Default width for the sidebar */
-    background-color: #f0f0f0;
-    padding: 1rem;
-    display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    flex-direction: column; /* Stack the list items */
-    padding: 30px;
-    transition: all 0.3s ease; /* Smooth width transition */
-    overflow-y: auto; /* Handle overflow gracefully */
+    width: 100%; /* Sidebar takes full width */
+    height: auto; /* Adjust height for smaller screens */
+    padding: 10px;
   }
-  
+
   .store-content {
-    flex: 1; /* Take up remaining space */
-    padding: 30px;
-    background-color: #f0f0f0;
-    overflow-y: auto; /* Allow scrolling for content */
-    transition: flex 0.3s ease; /* Smooth resizing for dynamic adjustments */
+    padding: 20px;
   }
-  
-  /* Shrinking Sidebar Behavior */
-  .store-expanded .store-sidebar {
-    width: 15%; /* Shrink sidebar width */
-  }
-  
-  .store-expanded .store-content {
-    flex: 1; /* Dynamically expand the content */
-  }
-  
-  /* Sidebar List Styling */
-  .store-sidebar ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 20px; /* Space between list items */
-    width: 100%; /* Take full width of the sidebar */
-  }
-  
+
   .store-sidebar li {
-    display: flex;
-    align-items: center;
-    justify-content: center; /* Align text and icon centrally */
-    padding: 16px 25px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    border-radius: 10px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    color: #000;
+    padding: 14px 20px; /* Adjust spacing for smaller screens */
+    font-size: 1.1rem; /* Slightly smaller font size */
   }
-  
-  .store-sidebar li:hover {
-    background-color: black;
-    color: white;
-    transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 480px) {
+  .store-sidebar {
+    width: 100%; /* Sidebar fully collapses into a single view */
   }
-  
-  .store-sidebar li .icon {
-    font-size: 1.3rem;
-    color: #00bcd4;
-    margin-right: 10px; /* Space between icon and text */
+
+  .store-sidebar li {
+    padding: 8px 12px; /* Adjust spacing further */
+    font-size: 1.2rem; /* Reduce font size */
   }
-  
-  .store-sidebar li .text {
-    font-weight: 700;
-  }
-  
-  /* Responsive layout adjustments */
-  @media (max-width: 768px) {
-    .store {
-      flex-direction: column; /* Stack layout for smaller screens */
-    }
-  
-    .store-sidebar {
-      width: 100%; /* Sidebar takes full width */
-      height: auto; /* Adjust height for smaller screens */
-      padding: 20px;
-    }
-  
-    .store-content {
-      padding: 20px;
-    }
-  
-    .store-sidebar li {
-      padding: 14px 20px; /* Adjust spacing for smaller screens */
-      font-size: 1.1rem; /* Slightly smaller font size */
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .store-sidebar {
-      width: 100%; /* Sidebar fully collapses into a single view */
-    }
-  
-    .store-sidebar li {
-      padding: 8px 12px; /* Adjust spacing further */
-      font-size: 1.2rem; /* Reduce font size */
-    }
-  }
-  
-  .store.store-expanded .store-content {
-    margin-left: 0; /* Remove unnecessary space */
-  }
+}
+
+.store.store-expanded .store-content {
+  margin-left: 0; /* Remove unnecessary space */
+}

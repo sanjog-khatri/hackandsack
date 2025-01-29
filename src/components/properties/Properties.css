@@ -1,163 +1,130 @@
-/* Main container for the properties sidebar */
+/* Sidebar Styles (Properties section) */
 .properties {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  width: 200px; /* Default width */
+  height: calc(100vh - 60px); /* Ensure it fills the entire remaining height */
+  background-color: white;
+  padding: 1rem;
+  z-index: 90;
+  transition: width 0.3s ease, background-color 0.3s ease;
+  margin-top: 0; /* Remove the gap between the header and properties */
+  border-radius: 10px; /* Round the corners of the properties sidebar */
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 60px); /* Full height minus the height of the header */
-  padding-top: 0px; /* Add some padding from the top */
-  margin-top: 50px; /* Push content down below the header */
-  transition: all 0.3s ease; /* Smooth transition for the width change */
-  width: 250px; /* Default width when text is visible */
-  position: relative; /* Needed for popovers or submenus */
+  padding-left: 1rem; /* Adjust padding to move items more to the left */
+  align-items: flex-start; /* Ensures that items start from the left */
 }
 
+/* When in icons-only mode */
 .properties.icons-only {
-  width: 100px; /* Shrinks the width when only icons are shown */
+  width: 80px; /* Reduced width for icons-only mode */
+  padding-left: 0.5rem; /* Reduced padding for icons-only mode */
 }
 
-/* Toolbar with action buttons (icons) */
+/* Properties Toolbar Style (buttons aligned horizontally) */
 .properties-toolbar {
   display: flex;
-  justify-content: flex-start; /* Align icons to the left */
-  padding-left: 15px; /* Shift toolbar icons slightly to the left */
+  flex-direction: row; /* Align buttons horizontally */
+  align-items: center; /* Align items vertically in the center */
   gap: 10px; /* Space between icons */
-  margin-bottom: 20px;
-  transition: all 0.3s ease; /* Smooth transition */
+  margin-bottom: 20px; /* Added margin to create space between toolbar and items below */
 }
 
-.properties.icons-only .properties-toolbar {
-  justify-content: center; /* Center the icons when in shrunk mode */
-  padding-left: 0; /* Remove extra padding when shrunk */
-  gap: 20px; /* Slightly increase gap between icons in shrunk mode */
-}
-
-/* Individual icon button styles */
-.properties-icon-button {
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  font-size: 20px; /* Default icon size */
-  transition: all 0.3s ease; /* Smooth transition */
-  color: #00bcd4; /* Default icon color */
-}
-
-.properties-icon-button:hover {
-  color: #000; /* Optional: Change color on hover */
-}
-
-/* When in icons-only mode, reduce icon size */
-.properties.icons-only .properties-icon-button {
-  font-size: 18px; /* Smaller icon size in icons-only mode */
-}
-
-/* Properties list styling */
+/* Properties List */
 .properties-list {
-  list-style: none;
-  padding-left: 0;
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 10px; /* Decreased gap between items */
+  list-style: none; /* Remove default list styling */
+  padding: 0;
+  margin: 0;
+  width: 100%;
 }
 
 /* Individual properties item styling */
 .properties-item {
   display: flex;
   align-items: center;
-  justify-content: flex-start; /* Align items to the left by default */
-  padding: 12px 20px; /* Reduced padding */
-  font-size: 1.3rem; /* Slightly smaller font */
+  justify-content: flex-start; /* Align items to the left */
+  padding: 8px 12px;
+  font-size: 1rem;
   cursor: pointer;
-  border-radius: 8px;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  width: 80%; /* Slightly reduced width */
+  border-radius: 6px;
+  background-color: transparent;
+  border: none;
+  width: 100%;
   transition: all 0.3s ease;
   color: #000;
 }
 
+/* Hover Effect for Items */
 .properties-item:hover {
-  background-color: black; /* Change the background color to black */
-  color: white; /* Change the text color to white */
-  transform: translateY(-5px); /* Slightly elevate the item for a hover effect */
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Add a subtle shadow for hover effect */
+  background-color: #f1f1f1;
+  transform: translateY(-3px);
+  box-shadow: none;
 }
 
-/* Icon and text alignment inside each item */
+/* Active/Selected Item Styles */
+.properties-item.active {
+  background-color: black; /* Black background when active */
+  color: white; /* White text when active */
+}
+
+.properties-item.active .properties-icon {
+  color: white; /* White icon when active */
+}
+
+.properties-item.active .properties-text {
+  color: white; /* White text when active */
+  font-weight: 700; /* Bold text when active */
+}
+
+/* Icon and Text Alignment */
 .properties-item .properties-icon {
-  font-size: 1.8rem; /* Smaller icon size */
-  color: #00bcd4;
-  margin-right: 15px;
+  font-size: 1.5rem;
+  color: black; /* Default icon color */
+  margin-right: 10px;
 }
 
 .properties-item .properties-text {
-  font-weight: 600;
+  font-weight: 500;
 }
 
-/* When the layout is shrunk, center the content */
-.properties.icons-only .properties-item {
-  justify-content: center; /* Center the content (icon + text) in the item */
+/* Selected Item Styles */
+.properties-item.selected .properties-text {
+  font-weight: 700; /* Text is bold when selected */
 }
 
-.properties.icons-only .properties-item .properties-icon {
-  margin-right: 0; /* Remove space between icon and text */
+/* Properties Icon Button Styles (for Toolbar) */
+.properties-icon-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: black; /* Default icon color */
+  transition: all 0.3s ease;
 }
 
-/* Hide expand button in shrunk mode */
-.properties.icons-only .properties-item .properties-icon.expand-button {
-  display: none; /* Hide the expand button in icons-only mode */
-}
-
-/* Show expand button in normal mode */
-.properties .properties-item .properties-icon.expand-button {
-  display: block; /* Show the expand button when not shrunk */
-}
-
-/* Search bar styling */
-.properties-search {
-  margin: 10px;
-  display: flex;
-  justify-content: center;
-}
-
-.properties-search-input {
-  padding: 8px;
-  font-size: 1rem;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  width: 50%;
-}
-
-/* When in smaller screen sizes */
+/* Mobile Responsiveness */
 @media (max-width: 768px) {
   .properties-item {
-    width: 85%; /* Slightly reduce width on smaller screens */
-    font-size: 1.2rem; /* Smaller font size */
-    padding: 10px 20px; /* Reduced padding */
+    width: 80%;
+    font-size: 1rem;
+    padding: 8px 15px;
   }
 
   .properties-search-input {
-    width: 80%;
+    width: 70%;
   }
 }
 
 @media (max-width: 480px) {
   .properties-item {
     width: 100%;
-    font-size: 1rem; /* Smaller font size for smaller screens */
-    padding: 8px 15px; /* Reduced padding */
+    font-size: 0.9rem;
+    padding: 6px 12px;
   }
 
   .properties-search-input {
     width: 100%;
   }
-}
-
-.properties .properties-item.expanded {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.7); /* Dark overlay effect */
-  z-index: 101; /* Ensure it's above other elements */
 }

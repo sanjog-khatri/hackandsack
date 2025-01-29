@@ -2,7 +2,7 @@
 body {
   margin: 0;
   height: 100%;
-  overflow: hidden; /* Prevent overall page scrolling */
+  overflow: hidden; /* Disable scrolling to remove unwanted space */
 }
 
 /* Layout Container */
@@ -11,50 +11,72 @@ body {
   height: 100vh;
   flex-direction: row;
   position: relative;
+  overflow: hidden; /* Ensure no overflow from the layout */
 }
 
-/* Fixed Header */
+/* Card-like Header */
 .header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 60px;
-  background-color: #333;
+  height: 20px;
+  background-color: black;
   color: white;
   z-index: 100;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adding shadow to resemble a card */
+  padding: 1rem;
 }
 
-/* Sidebar Styles (Properties section) */
+/* Card-like Sidebar (Properties) */
 .properties {
   position: fixed;
-  top: 60px;
+  top: 60px; /* No gap between the header and properties */
   left: 0;
-  width: 250px;
-  height: calc(100vh - 60px);
-  background-color: #333;
+  width: 150px; /* Default width of the properties sidebar */
+  height: calc(100vh - 60px); /* Ensure it fills the entire remaining height */
+  background-color: whitesmoke;
   color: white;
   padding: 1rem;
   z-index: 90;
   transition: width 0.3s ease, background-color 0.3s ease;
+  margin-top: 0; /* Remove the gap between the header and properties */
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adding shadow to resemble a card */
 }
 
+/* Sidebar in icons-only mode */
 .properties.icons-only {
-  width: 120px;
+  width: 100px; /* Further reduced width for icons-only mode */
 }
 
-/* Main Content Section */
+/* Card-like Main Content */
 .main-content {
-  margin-left: 250px;
-  margin-top: 60px;
-  padding: 2rem;
+  margin-left: 160px; /* Default margin for full-width sidebar */
+  margin-top: 60px; /* Start after header */
+  padding: 1rem; /* Add padding to simulate card content */
   flex: 1;
-  overflow-y: auto;
-  height: calc(100vh - 60px);
+  height: calc(100vh - 60px); /* Ensure it takes up full height, respecting header */
+  overflow: auto; /* Allow scroll if needed */
   transition: margin-left 0.3s ease, padding-left 0.3s ease;
+  border-radius: 10px; /* Round the corners of the main content */
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adding shadow to resemble a card */
 }
 
+/* Adjust main content margin dynamically based on sidebar width */
+.layout.store-expanded .main-content {
+  margin-left: 100px; /* Adjust margin for shrunk sidebar (100px width) */
+}
+
+/* Adjust the margin when sidebar is in icons-only mode */
 .main-content.icons-only {
-  margin-left: 130px;
+  margin-left: 120px; /* Adjust the margin for icons-only mode */
   padding-left: 1rem; /* Adjust padding for icons-only mode */
+}
+
+/* Hide scrollbar for webkit browsers in main content */
+.main-content::-webkit-scrollbar {
+  display: none; /* Hide scrollbar */
 }

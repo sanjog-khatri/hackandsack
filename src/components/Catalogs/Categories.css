@@ -1,0 +1,80 @@
+.categories-container {
+  width: 85%; /* Increase width of the main container */
+  margin: 0 auto; /* Center the container horizontally */
+  padding: 40px; /* Keep the increased padding for more space */
+}
+
+.categories-controls {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.add-category-btn {
+  padding: 12px 25px;
+  background-color: white;
+  color: black;
+  border: 1px solid gray;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.categories-search {
+  padding: 10px;
+  width: 250px; /* Increase width of search input */
+}
+
+.categories-table {
+  width: 100%; /* Keep table width at 100% for full utilization of container */
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.categories-header {
+  display: flex;
+  font-weight: bold;
+  background-color: #f4f4f4;
+  padding: 15px 20px;
+}
+
+.categories-header-item {
+  flex: 1;
+  cursor: pointer;
+  text-align: center;
+}
+
+.categories-rows {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.categories-row {
+  display: flex;
+  padding: 15px 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.categories-row div {
+  flex: 1;
+  text-align: center;
+}
+
+.category-action-button {
+  padding: 8px 15px;
+  background-color: white;
+  color: black;
+  border: 1px solid gray;
+  cursor: pointer;
+}
+
+.categories-pagination {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 16px;
+}
+
+.sort-arrow {
+  font-size: 12px;
+  margin-left: 8px;
+}

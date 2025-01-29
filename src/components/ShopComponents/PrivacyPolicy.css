@@ -51,28 +51,37 @@
     padding: 0.5rem;
   }
   
-  /* Action buttons section */
-  .action-buttons {
-    display: flex;
-    justify-content: flex-start;
-    gap: 1rem;
-    margin-top: 1.5rem;
-  }
-  
-  .action-button {
-    background-color: #00bcd4;
-    color: white;
-    padding: 0.7rem 1.5rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s ease;
-  }
-  
-  .action-button:hover {
-    background-color: black;
-  }
+/* Action buttons section */
+.action-buttons {
+  display: flex;
+  justify-content: flex-start;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.action-button {
+  background-color: white; /* White background */
+  color: black; /* Black text */
+  padding: 0.7rem 1.5rem;
+  border: 2px solid black; /* Border around the button */
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold; /* Make the font bold */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for background and font color */
+  text-transform: uppercase; /* Optional: Make the text uppercase */
+}
+
+.action-button:hover {
+  background-color: black; /* Change background to black on hover */
+  color: white; /* Change font color to white on hover */
+}
+
+/* Remove default browser styles for buttons */
+button {
+  all: unset; /* Reset all default styles */
+  box-sizing: border-box;
+}
   
   /* Responsive adjustments */
   @media (max-width: 768px) {

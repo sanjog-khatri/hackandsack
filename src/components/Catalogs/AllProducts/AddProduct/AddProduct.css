@@ -1,0 +1,153 @@
+.add-product-container {
+    padding: 30px; /* Added more space around the container */
+    background-color: #f9f9f9; /* Light background for the form */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  }
+  
+  .tabs {
+    display: flex;
+    margin-bottom: 30px; /* Increased space for separation */
+  }
+  
+  .tab {
+    padding: 10px 20px; /* Increased padding for better touch */
+    cursor: pointer;
+    border: 1px solid #ccc;
+    margin-right: 15px; /* Increased margin for better separation */
+    font-size: 16px; /* Slightly larger font size */
+    border-radius: 4px; /* Rounded corners for tabs */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+  }
+  
+  .tab.active {
+    background-color: black; /* Darker background for active tab */
+    color: white;
+  }
+  
+  .tab:hover {
+    background-color: black; 
+    color: white;
+  }
+  
+  .product-attribute-container, .variant-container {
+    margin-top: 30px;
+  }
+  
+  .product-details, .variant-table {
+    display: flex;
+    gap: 30px; /* Increased gap for better spacing */
+  }
+  
+  .section-left, .section-right {
+    width: 50%;
+  }
+  
+  .form-group {
+    margin-bottom: 20px; /* Increased margin for better separation */
+  }
+  
+  .form-group label {
+    font-size: 16px; /* Larger label text */
+    font-weight: 600; /* Bold text for labels */
+    margin-bottom: 6px; /* Space between label and input field */
+    color: #333; /* Darker label color */
+  }
+  
+  .form-group input, .form-group select, .form-group textarea {
+    width: 100%;
+    padding: 12px; /* Increased padding for better usability */
+    margin-top: 8px; /* Slightly increased space above the input field */
+    font-size: 16px; /* Larger font size */
+    border: 1px solid #ccc; /* Border for input fields */
+    border-radius: 8px; /* Rounded corners for inputs */
+    background-color: #f4f4f4; /* Light background for input fields */
+    transition: border-color 0.3s ease; /* Smooth transition for border color */
+  }
+  
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    border-color: #5b9bd5; /* Blue border color when focused */
+    outline: none; /* Remove default focus outline */
+  }
+  
+  .add-product-btn, .add-variant-btn {
+    padding: 12px 20px; /* Larger padding for better button size */
+    background-color: white; 
+    color: black;
+    border: 1px solid gray;
+    border-radius: 8px; /* Rounded corners for buttons */
+    cursor: pointer;
+    font-size: 16px; /* Larger font size */
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
+  }
+  
+  .add-product-btn:hover, .add-variant-btn:hover {
+    background-color: black; 
+    color: white;
+  }
+  
+  .variant-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px; /* Increased margin above the table */
+  }
+  
+  .variant-table th, .variant-table td {
+    padding: 15px; /* Increased padding for better readability */
+    border: 1px solid #ddd;
+    text-align: center;
+  }
+  
+  .variant-table th {
+    background-color: #f4f4f4; /* Light background for table headers */
+    font-weight: 600; /* Bold table headers */
+  }
+  
+  .variant-container {
+    margin-top: 30px;
+  }
+  
+  .variant-details {
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Increased gap for better form spacing */
+  }
+  
+  .variant-item {
+    display: flex;
+    gap: 30px; /* Increased gap between form fields */
+  }
+  
+  .remove-btn {
+    padding: 8px 16px;
+    background-color: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px; /* Larger font size */
+    border-radius: 8px; /* Rounded corners for buttons */
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
+  }
+  
+  .remove-btn:hover {
+    background-color: darkred; /* Darker red on hover */
+  }
+  
+  .add-variant-btn {
+    padding: 12px 20px;
+    background-color: white; /* Blue background for the variant button */
+    color: black;
+    border: 1px solid gray;
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
+  }
+  
+  .add-variant-btn:hover {
+    background-color: black; 
+    color: white;
+  }
+
+  
+  

@@ -25,7 +25,7 @@ const Subscriptions = () => {
           className="subscription-input"
         />
         <button className="upgrade-button" onClick={handleUpgradeClick}>
-          {showPackages ? "Hide Packages" : "Upgrade"}
+          {showPackages ? "Hide" : "Upgrade"}
         </button>
       </div>
 

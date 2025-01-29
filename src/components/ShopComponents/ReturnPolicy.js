@@ -57,7 +57,7 @@ const ReturnPolicy = () => {
             "blockquote",
             "clean",
           ]}
-          placeholder="Write or edit your company's terms and conditions here..."
+          placeholder="Write or edit your company's return policy here..."
         />
       </div>
 

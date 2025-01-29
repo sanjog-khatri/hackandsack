@@ -2,10 +2,11 @@ import React from 'react';
 import './CompanyDetails.css';
 
 const CompanyDetails = () => (
+  <>
+  <h2>COMPANY DETAILS IN HACK&SACK</h2>
   <div className="company-details-container">
     {/* Section 1: Company Details */}
     <div className="company-details-wrapper">
-      <h2>COMPANY DETAILS IN HACK&SACK</h2>
       <div className="company-details-box">
         <div className="details-left">
           <div className="input-group">
@@ -79,8 +80,8 @@ const CompanyDetails = () => (
     </div>
 
     {/* Section 2: Bank Account Verification */}
+    <h2>BANK ACCOUNT VERIFICATION IN HACK&SACK</h2>
     <div className="bank-verification-wrapper">
-      <h2>BANK ACCOUNT VERIFICATION IN HACK&SACK</h2>
       <div className="bank-account-verification-box">
         <div className="details-left">
           <div className="input-group">
@@ -126,6 +127,7 @@ const CompanyDetails = () => (
       <button className="submit-verification-button">Submit for Verification</button>
     </div>
   </div>
+  </>
 );
 
 export default CompanyDetails;

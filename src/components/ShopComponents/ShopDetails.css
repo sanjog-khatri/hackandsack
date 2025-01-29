@@ -35,13 +35,22 @@
   
   .visit-site {
     text-decoration: none;
-    color: #00bcd4;
-    font-size: 0.9rem;
+    color: black;
+    font-size: 0.8rem;
     margin-left: 1rem;
     cursor: pointer;
   }
   
   .visit-site:hover {
     text-decoration: underline;
+    font-weight: bold;
   }
   
+  .store-content .input-group input {
+    width: 92%; /* Reduce width */
+    padding: 0.5rem; /* Reduce padding */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 0.9rem; /* Decrease font size */
+    height: 35px; /* Set a smaller height */
+}

@@ -57,8 +57,8 @@
   
   /* Hover Effect for Menu Items */
   .profile__menu li:hover {
-    background-color: #f0f0f0; /* Light background color on hover */
-    color: #007bff; /* Change text color to blue on hover */
+    background-color: black; /* Light background color on hover */
+    color: white; /* Change text color to blue on hover */
   }
   
   @keyframes fadeIn {

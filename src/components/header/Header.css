@@ -5,7 +5,7 @@
   justify-content: space-between;
   width: 100%;
   height: 50px;
-  background-color: #333;
+  background-color: black;
   color: white;
   padding: 0 2rem;
   position: fixed;
@@ -39,7 +39,7 @@
 .header__company-name {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #00bcd4;
+  color: white;
   cursor: pointer;
 }
 
@@ -54,7 +54,7 @@
 }
 
 .header__search-icon {
-  color: #333;
+  color: black;
   margin-right: 1.5rem;
 }
 
@@ -95,9 +95,17 @@
   z-index: 1; /* Keeps the profile icon on top if necessary */
 }
 
-.header__right .header__notification-icon,
-.header__right .header__chat-icon {
-  z-index: 2; /* Ensure they are above profile when toggled */
+/* No vibration or shaking for the notification bell */
+.header__right .header__notification-icon {
   background-color: transparent; /* Make the notification bell icon background transparent */
   border: none; /* Remove any borders */
+  /* Remove any transform or keyframes causing shaking */
+  animation: none !important;
+  transform: none !important; /* Disable any transforms that might cause vibration */
+}
+
+/* Optional: Make the icon white and animate on hover */
+.header__right .header__notification-icon:hover {
+  color: white; /* Change color to white when hovered */
+  transition: color 0.3s ease; /* Smooth color change */
 }

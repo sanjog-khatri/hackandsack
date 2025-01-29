@@ -1,0 +1,84 @@
+.attributes-and-classes-container {
+  width: 85%; /* Increased container width */
+  margin: 0 auto; /* Center container horizontally */
+  padding: 40px; /* Increased padding for more space */
+}
+
+.sections-container {
+  display: flex;
+  justify-content: space-between; /* Align sections horizontally */
+  gap: 30px; /* Increased space between sections */
+}
+
+.left-section,
+.right-section {
+  width: 48%; /* Set each section width to 48% to ensure they fit within the container */
+}
+
+.product-class-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px; /* Increased space between product class sections */
+}
+
+.add-class-btn {
+  padding: 10px 20px; /* Increased button padding */
+  background-color: white;
+  color: black;
+  border: 1px solid gray;
+  cursor: pointer;
+  font-size: 16px; /* Increased font size */
+}
+
+.product-class-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px; /* Added margin to give space at the top of the table */
+}
+
+.table-header {
+  display: flex;
+  font-weight: bold;
+  background-color: #f4f4f4;
+  padding: 15px; /* Increased padding for better readability */
+}
+
+.table-header-item {
+  flex: 1;
+  text-align: left;
+}
+
+.table-row {
+  display: flex;
+  padding: 15px; /* Increased padding inside rows */
+  border-bottom: 1px solid #ddd;
+}
+
+.table-cell {
+  flex: 1;
+  text-align: left;
+}
+
+.select-class-btn {
+  padding: 8px 15px; /* Increased padding */
+  background-color: white;
+  color: black;
+  border: 1px solid gray;
+  cursor: pointer;
+  font-size: 16px; /* Increased font size */
+}
+
+.right-section {
+  padding-left: 30px; /* Increased padding between the left and right sections */
+  border-left: 1px solid #ddd; /* Add a border between left and right sections */
+}
+
+.attributes-container {
+  padding: 15px; /* Increased padding for the attributes container */
+}
+
+.attributes-container ul {
+  list-style-type: disc;
+  padding-left: 25px; /* Increased left padding for the list */
+}

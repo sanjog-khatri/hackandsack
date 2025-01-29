@@ -1,0 +1,79 @@
+.staff {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+  }
+  
+  .staff-expanded {
+    margin-left: 200px; /* Example adjustment for layout expansion */
+  }
+  
+  h3 {
+    margin-bottom: 1rem;
+  }
+  
+  .add-staff-button {
+    padding: 0.3rem 0.8rem; /* Smaller padding for a smaller button */
+    background-color: white;
+    color: black;
+    border: 1px solid gray;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem; /* Smaller font size */
+    margin-bottom: 1rem;
+    align-self: flex-end; /* Align the button to the far right */
+    display: flex; /* Flexbox to help center text */
+    justify-content: center; /* Horizontal centering */
+    align-items: center; /* Vertical centering */
+    text-align: center; /* Ensure text is centered */
+  }
+  
+  
+  .add-staff-button:hover {
+    background-color: black;
+    color: white;
+  }
+  
+  .staff-header {
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr 2fr 1fr;
+    background-color: #f1f1f1;
+    padding: 0.8rem;
+    border-bottom: 1px solid #ddd;
+    font-weight: bold;
+  }
+  
+  .staff-rows {
+    margin-top: 0.5rem;
+  }
+  
+  .staff-row {
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr 2fr 1fr;
+    padding: 0.8rem;
+    border-bottom: 1px solid #ddd;
+    align-items: center;
+  }
+  
+  .staff-row:nth-child(odd) {
+    background-color: #f9f9f9;
+  }
+  
+  .action-button {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .delete-button {
+    background-color: white;
+    color: black;
+    border: 1px solid gray;
+  }
+  
+  .delete-button:hover {
+    background-color: red;
+    color: white;
+  }
+  

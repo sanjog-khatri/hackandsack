@@ -1,0 +1,112 @@
+.order {
+  padding: 20px;
+}
+
+.order-controls {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.entries-select {
+  padding: 8px 12px;
+  font-size: 14px;
+}
+
+.order-search {
+  padding: 8px;
+  font-size: 14px;
+  width: 200px;
+}
+
+.order-table {
+  width: 100%;
+  border-collapse: collapse; /* Ensures borders do not overlap */
+}
+
+.order-header {
+  display: flex;
+  font-weight: bold;
+  background-color: #f4f4f4;
+  padding: 10px;
+  border-bottom: 2px solid #ddd; /* Border below the header */
+}
+
+.order-header-item {
+  flex: 1;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-start; /* Ensures text stays on the left */
+  align-items: center;
+  padding: 8px;
+  border-right: 1px solid #ddd; /* Border between columns */
+}
+
+.order-header-item .sort-arrow {
+  margin-left: 5px; /* Adds some space between text and the icon */
+}
+
+.order-header-item.sn {
+  flex: 0.5; /* Reduced width of SN column */
+}
+
+.order-header-item.paymentMethod {
+  flex: 1.5; /* Increased width of Payment Method column */
+}
+
+.order-header-item.action {
+  flex: 0.5; /* Decreased width of Action column */
+}
+
+.order-rows {
+  padding: 10px;
+}
+
+.order-row {
+  display: flex;
+  padding: 10px;
+  border-bottom: 1px solid #ddd; /* Border between rows */
+}
+
+.order-row div {
+  flex: 1;
+  text-align: left;
+  padding: 8px;
+  border-right: 1px solid #ddd; /* Border between columns */
+}
+
+.order-row .sn {
+  flex: 0.5; /* Ensure SN row content aligns with its header */
+}
+
+.order-row .paymentMethod {
+  flex: 1.5; /* Increased width of Payment Method column */
+}
+
+.order-row .action {
+  flex: 0.5; /* Decreased width of Action column */
+  text-align: center;
+}
+
+.order-action-button {
+  padding: 5px 10px;
+  background-color: #00bcd4;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.no-data {
+  padding: 20px;
+  text-align: center;
+}
+
+.order-pagination {
+  margin-top: 20px;
+}
+
+.order-table, .order-header, .order-row {
+  border: 1px solid #ddd; /* Border for the table, header, and rows */
+}

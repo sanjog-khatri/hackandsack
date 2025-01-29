@@ -1,0 +1,110 @@
+.ticket {
+  padding: 2rem;
+}
+
+.ticket-controls {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.entries-select,
+.ticket-search {
+  padding: 0.4rem 0.8rem;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 150px; /* Ensure consistent width for select and search */
+}
+
+.ticket-table {
+  width: 100%;
+  margin-top: 1rem;
+  border-collapse: collapse;
+  display: table;
+  table-layout: fixed; /* Ensure columns align correctly */
+}
+
+.ticket-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr 2fr 1fr 1fr; /* Same structure as .ticket-row */
+  background-color: #f1f1f1;
+  padding: 0.8rem;
+  font-weight: bold;
+  text-align: center; /* Ensure text is centered */
+}
+
+.ticket-header-item {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center; /* Ensure header text is centered */
+}
+
+.sort-arrow {
+  margin-left: 5px;
+  font-size: 0.8rem;
+}
+
+.ticket-rows {
+  margin-top: 0.5rem;
+}
+
+.ticket-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr 2fr 1fr 1fr; /* Same structure as .ticket-header */
+  padding: 0.8rem;
+  border-bottom: 1px solid #ddd;
+  align-items: center;
+  text-align: center; /* Center the content in rows */
+  transition: background-color 0.3s ease;
+}
+
+.ticket-row:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+.ticket-row:hover {
+  background-color: #e6f7ff; /* Light blue hover effect for rows */
+}
+
+.ticket-action-button {
+  padding: 0.4rem 0.8rem;
+  background-color: white;
+  color: black;
+  border: 1px solid gray;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+  display: block;
+  margin: 0 auto; 
+}
+
+.ticket-action-button:hover {
+  background-color: black;
+  color: white;
+}
+
+.no-data {
+  text-align: center;
+  padding: 1rem;
+  color: #888;
+}
+
+.ticket-pagination {
+  margin-top: 1rem;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.ticket-pagination span {
+  font-weight: bold;
+  color: #333;
+}
+
+.ticket-pagination .no-data-text {
+  font-style: italic;
+  color: #888;
+}

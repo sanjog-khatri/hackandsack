@@ -1,21 +1,14 @@
 import React, { useState } from 'react';
-import { FaBell, FaCamera, FaSearch } from 'react-icons/fa';
+import Lottie from 'react-lottie';  // Import Lottie
 import './Header.css';
 import Profile from './Profile/Profile';
 import Notifications from '../header/notification/Notification';
+import * as bellAnimation from '../../assets/icons/white_notification_bell.json'; 
+import * as searchAnimation from '../../assets/icons/black_search.json'; 
 
 const Header = () => {
-  const [companyName, setCompanyName] = useState('Your Company Name');
   const [logo, setLogo] = useState(null);
-  const [isEditingName, setIsEditingName] = useState(false);
-  const [newCompanyName, setNewCompanyName] = useState(companyName);
   const [showNotifications, setShowNotifications] = useState(false);
-
-  const handleCompanyNameChange = (e) => setNewCompanyName(e.target.value);
-  const handleSaveCompanyName = () => {
-    setCompanyName(newCompanyName.trim() || companyName);
-    setIsEditingName(false);
-  };
 
   const handleLogoUpload = (e) => {
     const file = e.target.files[0];
@@ -30,53 +23,48 @@ const Header = () => {
 
   const getCurrentTime = () => new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
+  // Lottie options for the bell animation
+  const bellAnimationOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: bellAnimation,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
+
+  // Lottie options for the search animation
+  const searchAnimationOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: searchAnimation,  // Replace with your search animation JSON
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
+
   return (
     <header className="header">
-      {/* Left Section: Company Logo and Name */}
+      {/* Left Section: Company Logo and Static Name */}
       <div className="header__left">
         <div className="header__logo-section">
+          {/* Display the logo here if available */}
           {logo ? (
             <img src={logo} alt="Company Logo" className="header__logo" />
           ) : (
-            <button
-              onClick={() => document.getElementById('logo-upload').click()}
-              className="header__camera-icon"
-              title="Upload Logo"
-            >
-              <FaCamera />
-            </button>
+            <span className="header__logo-placeholder">Your Logo</span>  
           )}
-          <input
-            id="logo-upload"
-            type="file"
-            accept="image/*"
-            style={{ display: 'none' }}
-            onChange={handleLogoUpload}
-          />
         </div>
-        {isEditingName ? (
-          <div className="header__edit-name">
-            <input
-              type="text"
-              value={newCompanyName}
-              onChange={handleCompanyNameChange}
-              className="header__name-input"
-              placeholder="Enter Company Name"
-            />
-            <button onClick={handleSaveCompanyName} className="header__save-btn">
-              Save
-            </button>
-          </div>
-        ) : (
-          <h1 className="header__company-name" onClick={() => setIsEditingName(true)} title="Edit Name">
-            {companyName}
-          </h1>
-        )}
+        {/* Static Company Name */}
+        <h1 className="header__company-name">
+          CompanyName
+        </h1>
       </div>
 
-      {/* Center Section: Search Bar */}
+      {/* Center Section: Search Bar with Lottie */}
       <div className="header__search">
-        <FaSearch className="header__search-icon" />
+        {/* Lottie animation for the search icon */}
+        <Lottie options={searchAnimationOptions} height={30} width={30} />
         <input
           type="text"
           className="header__search-input"
@@ -84,14 +72,15 @@ const Header = () => {
         />
       </div>
 
-      {/* Right Section: Icons for Notifications and Profile */}
+      {/* Right Section: Notification Icon (Lottie animation) */}
       <div className="header__right">
         <button
           onClick={() => setShowNotifications((prev) => !prev)}
           className="header__notification-icon"
           title="Notifications"
         >
-          <FaBell />
+          {/* Lottie animation for Bell Icon */}
+          <Lottie options={bellAnimationOptions} height={40} width={40} />
         </button>
         <div className="header__profile">
           <Profile />

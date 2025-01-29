@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css'; // Import the Quill styles
-import './PrivacyPolicy.css'; // Custom CSS for styling
+import 'react-quill/dist/quill.snow.css'; 
+import './PrivacyPolicy.css'; 
 
 const PrivacyPolicy = () => {
   const [editorContent, setEditorContent] = useState('');
@@ -37,6 +37,7 @@ const PrivacyPolicy = () => {
           formats={[
             'header', 'font', 'size', 'align', 'bold', 'italic', 'underline', 'list', 'indent', 'link', 'image', 'blockquote', 'clean'
           ]}
+          placeholder="Write or edit your company's privacy policy here..."
         />
       </div>
 

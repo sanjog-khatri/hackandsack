@@ -55,20 +55,25 @@
   }
   
   .update-details-button, .submit-verification-button {
-    background-color: #00bcd4;
-    color: white;
+    background-color: white;
+    color: black;
     padding: 1rem 2rem;
-    border: none;
+    border: 1px solid rgb(150, 148, 148); /* Add border */
     border-radius: 5px;
     cursor: pointer;
     font-size: 1.2rem;
     width: 100%;
     margin-top: 1.5rem;
+    transition: all 0.3s ease-in-out; /* Smooth transition */
+    display: flex; /* Flexbox to help center text */
+    justify-content: center; /* Horizontal centering */
+    align-items: center; /* Vertical centering */
+    text-align: center; /* Ensure text is centered */
   }
-  
-  .update-details-button:hover, .submit-verification-button:hover {
+.update-details-button:hover, .submit-verification-button:hover {
     background-color: black;
-  }
+    color: white;
+}
   
   /* Add responsive layout adjustments for left and right sections */
   .details-left, .details-right {
@@ -78,17 +83,24 @@
   
   /* Adjust layout for bank account verification section */
   .bank-account-verification-box {
-    flex-direction: column;
-  }
-  
-  .bank-account-verification-box .input-group {
+    background-color: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
     display: flex;
     justify-content: space-between;
-  }
-  
-  .bank-account-verification-box .input-group input {
-    width: 48%;
-  }
+    flex-direction: row; /* Arrange items in a row */
+}
+
+.bank-account-verification-box .details-left,
+.bank-account-verification-box .details-right {
+    width: 48%; /* Each side takes equal width */
+}
+
+.bank-account-verification-box .input-group {
+    margin-bottom: 1.2rem;
+}
   
   /* Make file upload section occupy full width */
   .file-upload-section {
