@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
-import Lottie from 'react-lottie';  // Import Lottie
+import Lottie from 'react-lottie';
+import { FaExpandArrowsAlt, FaBars } from 'react-icons/fa';
 import './Header.css';
 import Profile from './Profile/Profile';
 import Notifications from '../header/notification/Notification';
 import * as bellAnimation from '../../assets/icons/white_notification_bell.json'; 
 import * as searchAnimation from '../../assets/icons/black_search.json'; 
 
-const Header = () => {
+const Header = ({ onToggleIconsOnly }) => {
   const [logo, setLogo] = useState(null);
   const [showNotifications, setShowNotifications] = useState(false);
+  const [isFullscreen, setIsFullscreen] = useState(false);
 
   const handleLogoUpload = (e) => {
     const file = e.target.files[0];
@@ -21,9 +23,18 @@ const Header = () => {
     }
   };
 
-  const getCurrentTime = () => new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  const toggleFullscreen = () => {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen();
+      setIsFullscreen(true);
+    } else {
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+        setIsFullscreen(false);
+      }
+    }
+  };
 
-  // Lottie options for the bell animation
   const bellAnimationOptions = {
     loop: true,
     autoplay: true,
@@ -33,11 +44,10 @@ const Header = () => {
     },
   };
 
-  // Lottie options for the search animation
   const searchAnimationOptions = {
     loop: true,
     autoplay: true,
-    animationData: searchAnimation,  // Replace with your search animation JSON
+    animationData: searchAnimation,
     rendererSettings: {
       preserveAspectRatio: "xMidYMid slice",
     },
@@ -45,41 +55,30 @@ const Header = () => {
 
   return (
     <header className="header">
-      {/* Left Section: Company Logo and Static Name */}
       <div className="header__left">
+        <button onClick={onToggleIconsOnly} className="header__icon-button">
+          <FaBars size={24} />
+        </button>
+        <button onClick={toggleFullscreen} className="header__icon-button">
+          <FaExpandArrowsAlt size={24} />
+        </button>
         <div className="header__logo-section">
-          {/* Display the logo here if available */}
           {logo ? (
             <img src={logo} alt="Company Logo" className="header__logo" />
           ) : (
             <span className="header__logo-placeholder">Your Logo</span>  
           )}
         </div>
-        {/* Static Company Name */}
-        <h1 className="header__company-name">
-          CompanyName
-        </h1>
+        <h1 className="header__company-name">CompanyName</h1>
       </div>
 
-      {/* Center Section: Search Bar with Lottie */}
       <div className="header__search">
-        {/* Lottie animation for the search icon */}
         <Lottie options={searchAnimationOptions} height={30} width={30} />
-        <input
-          type="text"
-          className="header__search-input"
-          placeholder="Search..."
-        />
+        <input type="text" className="header__search-input" placeholder="Search..." />
       </div>
 
-      {/* Right Section: Notification Icon (Lottie animation) */}
       <div className="header__right">
-        <button
-          onClick={() => setShowNotifications((prev) => !prev)}
-          className="header__notification-icon"
-          title="Notifications"
-        >
-          {/* Lottie animation for Bell Icon */}
+        <button onClick={() => setShowNotifications((prev) => !prev)} className="header__notification-icon">
           <Lottie options={bellAnimationOptions} height={40} width={40} />
         </button>
         <div className="header__profile">
@@ -87,8 +86,7 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Notifications Component */}
-      {showNotifications && <Notifications getCurrentTime={getCurrentTime} />}
+      {showNotifications && <Notifications />}
     </header>
   );
 };

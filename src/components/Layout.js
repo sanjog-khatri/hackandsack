@@ -1,35 +1,26 @@
 import React, { useState } from 'react';
 import Header from './header/Header';
 import Properties from './properties/Properties';
-import './Layout.css'; // Import the external CSS file
+import './Layout.css';
 
 const Layout = ({ children }) => {
   const [isIconsOnly, setIsIconsOnly] = useState(false);
-  const [isPropertiesShrunk, setIsPropertiesShrunk] = useState(false);
+  const [activeItem, setActiveItem] = useState(null);
 
-  // Only toggle the icons display in the sidebar
   const toggleIconsOnly = () => {
     setIsIconsOnly((prev) => !prev);
   };
 
-  // Only toggle the sidebar shrink state on explicit interaction
-  const togglePropertiesShrunk = () => {
-    setIsPropertiesShrunk((prev) => !prev);
+  const handleItemClick = (item) => {
+    setActiveItem(item.name);
   };
 
   return (
-    <div className={`layout ${isPropertiesShrunk ? 'store-expanded' : ''}`}>
-      <Header />
-
-      {/* Sidebar (Properties) */}
+    <div className="layout">
+      <Header onToggleIconsOnly={toggleIconsOnly} />
       <aside className={`properties ${isIconsOnly ? 'icons-only' : ''}`}>
-        <Properties
-          onIconsToggle={toggleIconsOnly} // Toggle icons only, not shrinking
-          onShrinkToggle={togglePropertiesShrunk} // Toggle shrinking behavior explicitly
-        />
+        <Properties isTextVisible={!isIconsOnly} activeItem={activeItem} onItemClick={handleItemClick} />
       </aside>
-
-      {/* Main Content */}
       <main className={`main-content ${isIconsOnly ? 'icons-only' : ''}`}>
         {children}
       </main>
