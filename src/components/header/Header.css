@@ -18,7 +18,7 @@
 .header__left {
   display: flex;
   align-items: center;
-  gap: 0.5rem; /* Reduced gap between elements */
+  gap: 0.4rem;
 }
 
 .header__logo-section {
@@ -56,6 +56,23 @@
 .header__search-icon {
   color: black;
   margin-right: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+/* Active state for the search icon: up and down animation */
+.header__search-icon.active {
+  animation: bounce 1s infinite; /* Apply up and down animation continuously */
+  color: #007bff; /* Change color when active */
+}
+
+/* Keyframes for up and down animation (bouncing effect) */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0); /* Start and end at normal position */
+  }
+  50% {
+    transform: translateY(-5px); /* Move up */
+  }
 }
 
 .header__search-input {
@@ -95,17 +112,31 @@
   z-index: 1; /* Keeps the profile icon on top if necessary */
 }
 
-/* No vibration or shaking for the notification bell */
-.header__right .header__notification-icon {
-  background-color: transparent; /* Make the notification bell icon background transparent */
+/* Shared icon styles (for notification) */
+.header__notification-icon {
+  background-color: transparent; /* Make the icon background transparent */
   border: none; /* Remove any borders */
-  /* Remove any transform or keyframes causing shaking */
-  animation: none !important;
-  transform: none !important; /* Disable any transforms that might cause vibration */
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition for scaling and color change */
+  font-size: 2.2rem; /* Increase the icon size */
+  transform-origin: center; /* Ensure scaling from the center */
 }
 
-/* Optional: Make the icon white and animate on hover */
-.header__right .header__notification-icon:hover {
-  color: white; /* Change color to white when hovered */
-  transition: color 0.3s ease; /* Smooth color change */
+/* Active state for notification icon */
+.header__notification-icon.active {
+  transform: scale(1.2); /* Scale up when active */
+  color: yellow; /* Color change when active */
+}
+
+/* Hover effect for notification icon */
+.header__notification-icon:hover {
+  color: #007bff; /* Change color to blue when hovered */
+  transform: scale(1.2); /* Slightly enlarge on hover */
+  transition: transform 0.3s ease, color 0.3s ease; /* Smooth scale and color transition */
+}
+
+/* Notification Icon - Move it to the left of the profile icon */
+.header__notification-icon {
+  position: relative; /* Changed to relative to prevent shift */
+  left: -170px; /* Push the notification icon to the left of the profile */
 }

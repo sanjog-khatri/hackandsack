@@ -12,8 +12,10 @@ const Layout = ({ children }) => {
   };
 
   const handleItemClick = (item) => {
-    setActiveItem(item.name);
+    // If the clicked item is already active, set it to null (deactivate it)
+    setActiveItem((prevActiveItem) => (prevActiveItem === item.name ? null : item.name));
   };
+  
 
   return (
     <div className="layout">

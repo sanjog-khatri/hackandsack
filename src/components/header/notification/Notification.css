@@ -23,25 +23,12 @@
   color: #444; /* Darker header for better contrast */
 }
 
-.header__notification-icon {
-  font-size: 1.8rem; /* Increase icon size */
-  color: white; /* Set icon color */
-  transition: transform 0.1s ease-in-out; /* Smooth transition for shaking */
-  position: absolute;
-  right: 200px; /* Push the notification icon 20px to the left */
-  top: 2px; /* Adjust top if needed */
-}
-
-/* Apply the shake effect on hover for the notification icon */
-.header__notification-icon:hover {
-  animation: shake 0.3s ease-in-out;
-}
-
 .header__notifications ul {
   list-style: none;
   padding-left: 0;
   margin: 0;
 }
+
 .header__notifications li {
   font-size: 1rem;
   padding: 10px 0;
@@ -51,20 +38,13 @@
   margin-bottom: 10px;
   transition: background-color 0.3s ease;
 }
+
 .header__notifications li:hover {
   background-color: #f9f9f9; /* Slight background highlight on hover */
 }
+
 .notification-time {
   font-size: 0.9rem;
   color: #888;
   margin-left: 10px;
-}
-
-/* Vibration animation */
-@keyframes shake {
-  0% { transform: translateX(0); }
-  25% { transform: translateX(-5px); }
-  50% { transform: translateX(5px); }
-  75% { transform: translateX(-5px); }
-  100% { transform: translateX(0); }
 }

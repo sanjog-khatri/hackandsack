@@ -3,22 +3,23 @@
   position: fixed;
   top: 60px;
   left: 0;
-  width: 200px; /* Default width */
-  height: calc(100vh - 60px); /* Full height below header */
+  width: 130px; /* Sidebar width */
+  height: calc(100vh - 60px);
   background-color: white;
-  padding: 1rem;
+  padding: 0;
   z-index: 90;
   transition: width 0.3s ease;
-  border-radius: 10px;
+  border-radius: 8px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  overflow-y: auto;
 }
 
 /* Icons-only mode */
 .properties.icons-only {
-  width: 80px;
-  padding-left: 0.5rem;
+  width: 45px; /* Adjusted for icons-only mode */
+  padding-left: 0.15rem;
 }
 
 /* Properties List */
@@ -33,10 +34,10 @@
 .properties-item {
   display: flex;
   align-items: center;
-  padding: 8px 12px;
-  font-size: 1rem;
+  padding: 4px 7px;
+  font-size: 0.7rem;
   cursor: pointer;
-  border-radius: 6px;
+  border-radius: 3px;
   width: 100%;
   transition: background-color 0.3s ease, transform 0.3s ease;
   color: black;
@@ -45,14 +46,15 @@
 /* Hover Effect */
 .properties-item:hover {
   background-color: #f1f1f1;
-  transform: translateY(-3px);
+  transform: translateY(-1px);
+  scale: 1.05;
 }
 
 /* Active Item */
 .properties-item.active {
   background-color: black;
   color: white;
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .properties-item.active .properties-icon {
@@ -61,24 +63,137 @@
 
 /* Icon and Text */
 .properties-item .properties-icon {
-  font-size: 1.5rem;
+  font-size: 0.9rem;
   color: black;
-  margin-right: 10px;
+  margin-right: 4px;
 }
 
 .properties-item .properties-text {
   font-weight: 500;
+  font-size: 0.7rem;
 }
 
-/* Mobile Responsiveness */
+/* Category Title */
+.category-title {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: #555;
+  text-transform: uppercase;
+  padding: 0;
+  margin-bottom: 0.18rem;
+}
+
+/* Maintain spacing between sections */
+.properties-category {
+  margin-bottom: 0.6rem;
+  padding: 0;
+  position: relative;
+  border-bottom: 1px solid #ccc; /* Add this line */
+  padding-bottom: 10px; /* Optional: to give some space after the line */
+}
+
+/* Adjustments for icons-only mode */
+.properties.icons-only .category-title {
+  display: none;
+}
+
+.properties.icons-only .properties-category {
+  margin-bottom: 0.22rem;
+}
+
+/* Sales Calendar Styles */
+.sales-calendar {
+  width: 100%;
+  max-width: 140px;
+  font-size: 0.6rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.sales-calendar .react-datepicker {
+  border: none;
+  box-shadow: none;
+}
+
+.sales-calendar .react-datepicker__month-container {
+  width: 100%;
+}
+
+.sales-calendar .react-datepicker__day-names {
+  display: flex;
+  justify-content: space-around;
+  font-size: 0.55rem;
+  margin-bottom: -4px;
+}
+
+.sales-calendar .react-datepicker__day-name {
+  width: 20px;
+  height: 12px;
+  text-align: center;
+}
+
+.sales-calendar .react-datepicker__week {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+
+.sales-calendar .react-datepicker__day {
+  width: 18%;
+  height: 10px;
+  font-size: 0.5rem;
+  margin: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 50%;
+  color: black;
+}
+
+.sales-calendar .calendar-tile-red {
+  background-color: rgb(178, 40, 40) !important;
+  color: white !important;
+  border-radius: 3px;
+}
+
+.sales-calendar .react-datepicker__navigation {
+  width: 12px;
+  height: 8px;
+}
+
+.sales-calendar .react-datepicker__current-month {
+  font-size: 0.5rem;
+  padding: 2px 0;
+  margin-top: -8px;
+  margin-bottom: -10px;
+}
+
+.sales-calendar .react-datepicker__day-names {
+  font-size: 0.5rem;
+}
+
+.sales-calendar .react-datepicker__day--outside-month {
+  visibility: hidden;
+}
+
 @media (max-width: 768px) {
   .properties {
-    width: 80px; /* Collapse sidebar on smaller screens */
+    width: 80px;
+  }
+
+  .properties.icons-only {
+    width: 35px;
   }
 }
 
-@media (max-width: 480px) {
-  .properties {
-    width: 60px;
-  }
+.footer {
+  text-align: center;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+.company-logo {
+  width: 100px;
+  height: 60px;
 }
